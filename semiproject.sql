@@ -12,7 +12,7 @@ create table member(
 -- 게시판 테이블
 create table board(
     bno       int          auto_increment,
-    title     varchar2(50) not null,
+    title     varchar(50) not null,
     userid    varchar(18)  not null,
     contents  text         not null,
     views     int          default 0,
