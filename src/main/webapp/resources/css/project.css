@@ -1,0 +1,47 @@
+/* 페이지 공통*/
+#container{
+    width:960px;
+    border: 1px solid red;
+    margin:0 auto;
+}
+nav{
+    margin-top: 50px;
+}
+nav ul{
+    list-style: none;
+    padding: 0;
+}
+nav li{
+    display: inline-block;
+    padding: 0 65px;
+}
+
+a:link{
+    color:black;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:visited{
+    color:black;
+}
+a:hover{
+    color:red;
+    text-decoration: underline;
+}
+a:active{
+    color:orange;
+}
+
+.hr{
+    background-color: black;
+    height: 2px;
+    opacity: 100%;
+}
+
+main{
+    min-height: 500px;
+}
+
+.copy{
+    text-align: center;
+}
