@@ -1,7 +1,6 @@
 /* 페이지 공통*/
 #container{
     width:960px;
-    border: 1px solid red;
     margin:0 auto;
 }
 nav{
@@ -44,4 +43,36 @@ main{
 
 .copy{
     text-align: center;
+}
+
+/* 폼 공통 */
+form{
+    width: 320px;
+
+
+    margin: 75px auto;
+}
+
+form div {
+    padding: 5px;
+}
+form label{
+    width: 110px;
+    font-weight: bold;
+    text-align: right;
+}
+form input{
+    padding: 5px;
+}
+
+/* 회원정보 */
+.myinfo{
+    width: 300px;
+    margin: 75px auto;
+}
+.myinfo td, .myinfo th{
+    padding:7px;
+}
+.myinfo th{
+    text-align: right;
 }
