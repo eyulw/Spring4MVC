@@ -6,19 +6,19 @@
     <table class="myinfo">
         <tr>
             <th>아이디</th>
-            <td>abc123</td>
+            <td>${member.userid}</td>
         </tr>
         <tr>
             <th>이름</th>
-            <td>홍길동</td>
+            <td>${member.name}</td>
         </tr>
         <tr>
             <th>이메일</th>
-            <td>abc123@987xyz.co.kr</td>
+            <td>${member.email}</td>
         </tr>
         <tr>
             <th>가입일</th>
-            <td>2023-06-28 12:12:12</td>
+            <td>${member.regdate}</td>
         </tr>
     </table>
 </main>
