@@ -50,4 +50,12 @@ public class MemberControllerUnitTest {
                         .param("email","abc123@987xyz.co.kr"))
                 .andExpect(redirectedUrl("/member/login"));
     }
+
+    @Test
+    public void lgoinOkTest() throws Exception {
+        mockMvc.perform(post("/member/login")
+                        .param("userid","abc123")
+                        .param("passwd","987xyz"))
+                .andExpect(redirectedUrl("/member/myinfo"));
+    }
 }
