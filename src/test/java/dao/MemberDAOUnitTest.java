@@ -40,4 +40,12 @@ public class MemberDAOUnitTest {
 //        System.out.println(mdao.loginMember(m));
         assertNotNull(mdao.loginMember(m));
     }
+
+    @Test
+    public void selectOneMember() throws Exception{
+        String userid = "abc123";
+//        assertEquals(테스트메서드, 검증값)
+        System.out.println(mdao.selectOneMember(userid));
+        assertNotNull(mdao.selectOneMember(userid));
+    }
 }
