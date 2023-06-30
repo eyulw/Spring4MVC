@@ -48,7 +48,7 @@
         <c:if test="${(param.cpg-1) gt 0}">
             <li><a href="?cpg=${param.cpg-1}">이전</a></li>
         </c:if>
-        <c:forEach var="i" begin="1" end="10">
+        <c:forEach var="i" begin="${psnum}" end="${psnum+9}">
             <c:if test="${param.cpg ne i}">
                 <li><a href="?cpg=${i}">${i}</a></li>
             </c:if>
@@ -56,8 +56,9 @@
                 <li class="cpage"><a href="?cpg=${i}">${i}</a></li>
             </c:if>
         </c:forEach>
-<%--        <c:if test="${(param.cpg+1)}">--%>
+        <c:if test="${(param.cpg+1) lt allpg}">
             <li><a href="?cpg=${param.cpg+1}">다음</a></li>
+        </c:if>
     </ul>
 </main>
 <script src="/assets/js/board.js"></script>
