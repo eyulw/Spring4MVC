@@ -15,6 +15,7 @@ import java.util.List;
 public class BoardDAOImpl implements BoardDAO{
 
     @Value("#{sql['selectBoard']}") private String selectSQL;
+    @Value("#{sql['countPages']}") private String countSQL;
 
     @Autowired JdbcTemplate jdbcTemplate;
     @Override
@@ -22,6 +23,11 @@ public class BoardDAOImpl implements BoardDAO{
         Object[] params =new Object[]{snum};
         RowMapper<Board> mapper = new SelectMapper();
         return jdbcTemplate.query(selectSQL,params,mapper);
+    }
+
+    @Override
+    public int countPages() {
+        return jdbcTemplate.queryForObject(countSQL,Integer.class);
     }
 
     private class SelectMapper implements RowMapper<Board> {
