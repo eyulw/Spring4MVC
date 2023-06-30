@@ -31,5 +31,10 @@ public class BoardDAOUnitTest {
         assertEquals(results.size(),15);
         System.out.println(results);
     }
-
+    @Test
+    public void countPages() throws Exception{
+        int result=bdao.countPages();
+        assertNotNull(result);
+        System.out.println(result);
+    }
 }
