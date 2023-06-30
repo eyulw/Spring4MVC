@@ -12,6 +12,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/servlet-context.xml" ,
@@ -28,5 +29,12 @@ public class BoardServiceUnitTest {
         List<Board> results = bsrv.readBoard(cpage);
         assertEquals(results.size(),15);
         System.out.println(results);
+    }
+
+    @Test
+    public void getCountPages() throws Exception{
+        int result=bsrv.getCountPages();
+        assertNotNull(result);
+        System.out.println(result);
     }
 }
