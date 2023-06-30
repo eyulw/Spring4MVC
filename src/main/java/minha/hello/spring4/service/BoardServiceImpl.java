@@ -15,4 +15,9 @@ public class BoardServiceImpl implements BoardService{
         int snum = 15*(cpg-1);
         return bdao.selectBoard(snum);
     }
+
+    @Override
+    public int getCountPages() {
+        return bdao.countPages();
+    }
 }
