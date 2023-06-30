@@ -38,9 +38,9 @@ public class BoardControllerUnitTest {
     @Test
     public void listTest() throws Exception {
         MvcResult mvcResult = mockMvc.perform(get("/board/list").param("cpg","1"))
+                .andExpect(model().attributeExists("allpg"))
                 .andExpect(status().isOk())
                 .andReturn();
         System.out.println(mvcResult.getModelAndView());
     }
-
 }
