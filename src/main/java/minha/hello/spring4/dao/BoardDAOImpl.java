@@ -16,6 +16,7 @@ public class BoardDAOImpl implements BoardDAO{
 
     @Value("#{sql['selectBoard']}") private String selectSQL;
     @Value("#{sql['countPages']}") private String countSQL;
+    @Value("#{sql['selectOneBoard']}") private String selectOneSQL;
 
     @Autowired JdbcTemplate jdbcTemplate;
     @Override
@@ -30,6 +31,13 @@ public class BoardDAOImpl implements BoardDAO{
         return jdbcTemplate.queryForObject(countSQL,Integer.class);
     }
 
+    @Override
+    public Board selectOneBoard(String bno) {
+        Object[] params = new Object[]{bno};
+        RowMapper<Board> mapper = new SelectOneMapper();
+        return jdbcTemplate.queryForObject(selectOneSQL,params,mapper);
+    }
+
     private class SelectMapper implements RowMapper<Board> {
         @Override
         public Board mapRow(ResultSet rs, int num) throws SQLException {
@@ -42,6 +50,21 @@ public class BoardDAOImpl implements BoardDAO{
                     rs.getString(5)
             );
 
+            return bd;
+        }
+    }
+
+    private class SelectOneMapper implements RowMapper<Board> {
+        @Override
+        public Board mapRow(ResultSet rs, int num) throws SQLException {
+            Board bd = new Board(
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getString(5),
+                    rs.getString(6)
+            );
             return bd;
         }
     }
