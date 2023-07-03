@@ -37,4 +37,12 @@ public class BoardServiceUnitTest {
         assertNotNull(result);
         System.out.println(result);
     }
+
+    @Test
+    public void readOneBoard() throws Exception{
+        String bno="777";
+        Board result = bsrv.readOneBoard(bno);
+        assertNotNull(result);
+        System.out.println(result);
+    }
 }
