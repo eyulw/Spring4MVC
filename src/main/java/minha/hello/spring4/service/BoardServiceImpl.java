@@ -20,4 +20,9 @@ public class BoardServiceImpl implements BoardService{
     public int getCountPages() {
         return bdao.countPages();
     }
+
+    @Override
+    public Board readOneBoard(String bno) {
+        return bdao.selectOneBoard(bno);
+    }
 }
