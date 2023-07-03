@@ -33,8 +33,8 @@ public class BoardController {
         return "board/write.tiles";
     }
     @GetMapping("/view")
-    public String view(Model m){
-
+    public String view(Model m,String bno){
+        m.addAttribute("board",bsrv.readOneBoard(bno));
         logger.info("board/view 호출!");
         return "board/view.tiles";
     }
