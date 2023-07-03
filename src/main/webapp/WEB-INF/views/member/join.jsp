@@ -1,9 +1,9 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:if test="${not empty sessionScope.member}">
-    <script>location.href = "/member/myinfo";</script>
-</c:if>
+<%--<c:if test="${not empty sessionScope.member}">--%>
+<%--    <script>location.href = "/member/myinfo";</script>--%>
+<%--</c:if>--%>
 
 <main>
     <h2>회원가입</h2>
