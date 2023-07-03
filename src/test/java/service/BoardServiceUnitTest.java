@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -44,5 +45,12 @@ public class BoardServiceUnitTest {
         Board result = bsrv.readOneBoard(bno);
         assertNotNull(result);
         System.out.println(result);
+    }
+
+    @Test
+    @Transactional
+    public void saveBoard() throws Exception{
+        Board bd = new Board(null,"새글","abc123","테스트",null,null);
+        assertEquals(bsrv.saveBoard(bd),true);
     }
 }
