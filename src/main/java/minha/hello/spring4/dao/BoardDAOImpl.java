@@ -17,6 +17,8 @@ public class BoardDAOImpl implements BoardDAO{
     @Value("#{sql['selectBoard']}") private String selectSQL;
     @Value("#{sql['countPages']}") private String countSQL;
     @Value("#{sql['selectOneBoard']}") private String selectOneSQL;
+    @Value("#{sql['viewCountBoard']}") private String viewCountSQL;
+    @Value("#{sql['insertBoard']}") private String insertSQL;
 
     @Autowired JdbcTemplate jdbcTemplate;
     @Override
@@ -35,7 +37,21 @@ public class BoardDAOImpl implements BoardDAO{
     public Board selectOneBoard(String bno) {
         Object[] params = new Object[]{bno};
         RowMapper<Board> mapper = new SelectOneMapper();
+
+//        조회수 증가
+        jdbcTemplate.update(viewCountSQL,params);
+
         return jdbcTemplate.queryForObject(selectOneSQL,params,mapper);
+    }
+
+    @Override
+    public int insertBoard(Board bd) {
+        Object[] params = new Object[]{
+                bd.getTitle(),
+                bd.getUserid(),
+                bd.getContents()
+        };
+        return jdbcTemplate.update(insertSQL,params);
     }
 
     private class SelectMapper implements RowMapper<Board> {
