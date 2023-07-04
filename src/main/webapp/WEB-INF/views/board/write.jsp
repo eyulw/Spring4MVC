@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:if test="${empty sessionScope.member}">
-    <script> location.href='/member/login'</script>
-</c:if>
+<%--<c:if test="${empty sessionScope.member}">--%>
+<%--    <script> location.href='/member/login'</script>--%>
+<%--</c:if>--%>
 <main>
     <script src="http://www.google.com/recaptcha/api.js"></script>
     <h2>새글쓰기</h2>
